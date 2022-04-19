@@ -107,7 +107,9 @@ def upload_directory(printer, local_path: Path, dest_root: PurePosixPath):
 
     # now upload the files
     for child in tqdm(list(local_path.rglob("*"))):
-        if not child.is_dir():
+        if ".git" in child.parts:
+            continue
+        elif not child.is_dir():
             #print(child)
             with open(child, "rb") as f:
                 p =  PurePosixPath(child)
