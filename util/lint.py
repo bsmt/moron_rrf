@@ -1,0 +1,125 @@
+'''A simple linter for Duet/RepRapFirmware GCode.'''
+
+import argparse
+import os
+import pathlib
+import re
+from typing import List, Tuple, Iterator
+
+
+def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path, int, str]]:
+    '''Find all lines matching a regex.
+    
+    Returns a tuple with: (path, line_number, line)
+    '''
+
+    exp = re.compile(regex)
+
+    f = open(file, "r")
+    for idx, line in enumerate(f):
+        line_no = idx + 1
+        match = exp.search(line)
+        if match:
+            yield (file, line.strip(), line_no)
+    f.close()
+
+# TODO: "unknown value" linter. find references to variables that aren't defined
+# it shouldn't be *too* hard
+
+def lint_line_length(file: pathlib.Path):
+    '''Find any commands that are > 160 chars.
+    Duet currently cannot handle longer lines.
+    '''
+    with open(file, "r") as f:
+        for idx, line in enumerate(f.readlines()):
+            line_no = idx + 1
+            if len(line) > 160:
+                print(f"Line {line_no} - Command too long. Max length is 160 chars")
+                print(">\t" + line)
+
+
+def lint_m98_no_p(file: pathlib.Path):
+    '''Find M98 commands without a P argument.
+    I often do M98 "macro_file.g" instead of M98 P"macro_file.g"
+    '''
+    m98_matches = find_matches(file, r"M98")
+    for path, line, line_no in m98_matches:
+        cmd_args = line.split(" ")[1:]
+        missing_p_arg = not any([arg.startswith("P") for arg in cmd_args])
+        if missing_p_arg:
+            print(f"Line {line_no} - Missing P-argument for M98 command")
+            print(">\t" + line)
+
+
+def lint_m98_bad_path(file: pathlib.Path, root: pathlib.Path):
+    '''Find M98 commands with an invalid path.'''
+    m98_matches = find_matches(file, r"M98")
+    for path, line, line_no in m98_matches:
+        match = re.search(r'P"(\S+)"', line)
+        if match:
+            macro_path = match.groups()[0]
+            # rebase macro path
+            macro_path_relative = pathlib.Path(str(macro_path)[1:])  # chop off the /, hacky
+            macro_path_full = root / macro_path_relative
+            if not macro_path_full.exists():
+                print(f"Line {line_no} - Macro path does not exist: {macro_path_full}")
+                print(">\t" + line)
+
+
+def lint_move_no_coordinate_setup(file: pathlib.Path):
+    '''Find files with moves (G0, G1, etc) but no preceding G90/G91
+    
+    Implicitly defining the coordinate system can result in weird problems.
+    Macros can also override the coordinate system and not fix it up, but we dont check for that.
+    '''
+    move_matches = find_matches(file, r"G0 |G1 |G2 |G3 ")
+    coordinate_matches = find_matches(file, "G90|G91")
+    coordinate_line_numbers = [x[2] for x in coordinate_matches]
+    try:
+        first_coordinate = min(coordinate_line_numbers)
+    except:
+        first_coordinate = None  # idk, some big number
+
+    for f, line, line_no in move_matches:
+        if first_coordinate is None:  # no G90/G91 at all
+            print(f"Line {line_no} - Move command but no G90/G91")
+            print(">\t" + line)
+        elif line_no < first_coordinate:  # move appears before G90/G91
+            print(f"Line {line_no} - Move with no preceding G90/G91.")
+            print(">\t" + line)
+        else:  # should be okay
+            pass
+
+
+def lint_empty_file(file: pathlib.Path):
+    size = file.stat().st_size
+    if size < 1:
+        print("File is empty")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", help="Path to gcode codebase.",
+                        type=pathlib.Path)
+    parser.add_argument("-i", "--ignore", help="Comma separate list of checks to ignore",
+                        default="")
+    args = parser.parse_args()
+
+    src_path = args.path
+    ignore_list = args.ignore.split(",")
+    all_gcode_files = list(src_path.glob("**/*.g"))
+
+    for file in all_gcode_files:
+        print(file)
+
+        lint_line_length(file)
+        lint_m98_no_p(file)
+        lint_m98_bad_path(file, root=src_path)
+        lint_move_no_coordinate_setup(file)
+        lint_empty_file(file)
+
+        print("-" * 80)
+
+
+if __name__ == "__main__":
+    main()
