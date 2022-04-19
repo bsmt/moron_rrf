@@ -14,4 +14,4 @@ else
 ; for whatever reason, can_home_xy will fail if we don't have an echo or sleep here
 ; i'm wondering if it's a timing issue
 ;echo "Klicky attached: ", {global.klicky_attached}
-G4 P500
+G4 P200  ; sleep 200ms
