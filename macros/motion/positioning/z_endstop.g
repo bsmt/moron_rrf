@@ -4,4 +4,4 @@
 
 G90  ; absolute
 
-G1 X{global.z_endstop_x} Y{global.z_endstop_y}
+G1 X{global.z_endstop_x} Y{global.z_endstop_y} F{global.fast_move_feed}
