@@ -59,10 +59,12 @@ Note that when you reset, you will lose the connection. You have to be quick and
 
 ### Resources
 
-Duet Gcode dictionary: https://docs.duet3d.com/en/User_manual/Reference/Gcodes
+Gcode dictionary: https://docs.duet3d.com/en/User_manual/Reference/Gcodes
 
-Duet GCode meta commands: https://docs.duet3d.com/User_manual/Reference/Gcode_meta_commands
+GCode meta commands: https://docs.duet3d.com/User_manual/Reference/Gcode_meta_commands
 
-Duet object model: https://github.com/Duet3D/RepRapFirmware/wiki/Object-Model-Documentation
+Object model: https://github.com/Duet3D/RepRapFirmware/wiki/Object-Model-Documentation
 
-Duet best practices: https://forum.duet3d.com/assets/uploads/files/1589979002114-conditional-g-code-best-practice.pdf
+Best practices: https://forum.duet3d.com/assets/uploads/files/1589979002114-conditional-g-code-best-practice.pdf
+
+Printer config guide: https://docs.duet3d.com/User_manual/Machine_configuration

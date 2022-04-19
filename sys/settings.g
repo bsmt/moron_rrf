@@ -5,7 +5,7 @@ global x_min = 0
 global x_max = 350
 global y_min = 0
 global y_max = 350
-global z_min = -0.5
+global z_min = 0
 global z_max = 350
 
 ;;;;; endstops/hoping
@@ -122,7 +122,7 @@ global probe_dock_y = (global.y_max - 20)
 global z_hop_distance = 10  ; mm
 
 ; Z endstop location
-global z_endstop_x = 223
+global z_endstop_x = 228
 global z_endstop_y = global.y_max
 
 ; nozzle brush location (approximate center point)

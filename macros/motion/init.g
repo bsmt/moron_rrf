@@ -1,5 +1,8 @@
 ; setup motion: drives, endstops, etc.
 
+; feedrate to use for any fast moves
+global fast_move_feed = (200 * 60)  ; 200 mm/s to mm/min
+
 M669 K1  ; CoreXY mode
 
 ;;;;; Map drives to motor connectors
