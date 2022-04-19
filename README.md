@@ -9,6 +9,7 @@ Features:
 
 ## TODO:
 
+* come up with documentation system for globals created/set by scripts
 * homing scripts
 * Use low current modes as appropriate
 ** Z hops, homing
@@ -20,7 +21,7 @@ Features:
 * DAA/input shaping
 * nozzle wiping
 * nevermore stuff
-* chamber thermistor/heating stuff  
+* chamber thermistor/heating stuff
 * cleanup once everything is done-ish
 
 ## Development
@@ -48,7 +49,6 @@ RepRapFirmware for Duet 2 WiFi/Ethernet version 3.3
 Executing config.g... Moron config v0.1 initializing
 FTP is enabled on port 21
 TELNET is disabled
-TODO: klicky z probe init
 Warning: Macro file config-override.g not found
 Moron initialization done
 Done!

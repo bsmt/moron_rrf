@@ -6,7 +6,7 @@ var homing_speed_slow = 2.5    ; mm/s
 ; check if there is anything preventing us from homing (probe namely)
 M98 P"/macros/motion/homing/can_home_xy.g"
 
-if global.can_home == true
+if global.can_home_xy == true
     M98 P"/macros/motion/positioning/zhop_up.g"
 
     G90  ; absolute

@@ -35,6 +35,5 @@ elif global.z_probe_type == "klicky"
     
     M558 P5 C{global.z_probe_pin} H{var.start_height} R{var.settle_time} F{var.feed * 60} T{var.move_speed * 60} A{var.repeat} S{var.tolerance} B1 K0
     G31 P{global.klicky_triggered_val} X{var.x_offset} Y{var.y_offset}
-    echo "TODO: klicky z probe init"
 else
     echo "Unknown probe type"

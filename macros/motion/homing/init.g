@@ -1,1 +1,2 @@
-global can_home = false
+global can_home_xy = false
+global can_home_z = false

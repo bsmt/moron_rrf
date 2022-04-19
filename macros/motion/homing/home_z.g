@@ -1,0 +1,1 @@
+M98 P"/macros/motion/homing/can_home_z.g"
