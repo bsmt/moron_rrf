@@ -116,8 +116,8 @@ global park_y = 50
 ; probe dock setup location
 ; this should be the same X position as the probe dock, but with some subtracted from the Y
 ; such that the toolhead will be sat in front of the dock, ready to pick up the probe
-global probe_dock_x = 15
-global probe_dock_y = (global.y_max - 50)
+global probe_dock_x = 17
+global probe_dock_y = (global.y_max - 20)
 
 global z_hop_distance = 10  ; mm
 

@@ -7,6 +7,7 @@ python ./util/duet_fw_upload.py 192.168.1.137 . / -w
 import argparse
 from pathlib import Path, PurePath, PurePosixPath
 import os
+import time
 
 from duetwebapi import DuetWebAPI # pip install duetwebapi
 from tqdm import tqdm  # pip install tqdm
@@ -143,7 +144,6 @@ def main():
     parser.add_argument("-w", "--wipe", action="store_true", help="Delete old config gcode first. BACKUP FIRST!!!")
     args = parser.parse_args()
 
-
     if not args.password:
         password = ""
     else:
@@ -157,6 +157,10 @@ def main():
         wipe_old_gcode(printer, all_files)
 
     upload_directory(printer, args.src, PurePosixPath(args.dest))
+
+    time.sleep(5)
+
+    printer.send_code("M999")  # restart the board
 
 
 if __name__ == "__main__":
