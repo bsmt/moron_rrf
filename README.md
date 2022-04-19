@@ -9,11 +9,8 @@ Features:
 
 ## TODO:
 
-* Klicky stuff
-** deployprobe.g, retractprobe.g
-** init.g
-** "autoz"
 * QGL
+* Klicky autoz
 * come up with documentation system for globals created/set by scripts
 * Use low current modes as appropriate
 ** Z hops, homing

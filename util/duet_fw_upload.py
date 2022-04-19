@@ -105,12 +105,23 @@ def upload_directory(printer, local_path: Path, dest_root: PurePosixPath):
     # create empty dirs first
     #create_directories(printer, local_path, dest_root)
 
+    
+    # filter out things we don't want to upload (.git, util)
+    all_files = list(local_path.rglob("*"))
+    filtered_files = []
+    for p in all_files:
+        if ".git" in p.parts:
+            pass
+        elif p.parts[0] == "util":
+            pass
+        else:
+            filtered_files.append(p)
+
     # now upload the files
-    for child in tqdm(list(local_path.rglob("*"))):
+    for child in tqdm(filtered_files):
         if ".git" in child.parts:
             continue
         elif not child.is_dir():
-            #print(child)
             with open(child, "rb") as f:
                 p =  PurePosixPath(child)
                 upload_file(printer, p, f.read())
