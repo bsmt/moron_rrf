@@ -105,15 +105,15 @@ M98 P"/macros/motion/probe/init.g"
 M98 P"/macros/motion/homing/init.g"
 
 ; setup QGL z leadscrew offsets
-; redefining values to fit line length requirements
-var z0x = global.z0_x_offset
-var z0y = global.z0_y_offset
-var z1x = global.z1_x_offset 
-var z1y = global.z1_y_offset
-var z2x = global.z2_x_offset
-var z2y = global.z2_y_offset
-var z3x = global.z3_x_offset
-var z3y = global.z3_y_offset
+; redefining values to fit line length requirement
+var z0x = global.z0_x_pos
+var z0y = global.z0_y_pos
+var z1x = global.z1_x_pos 
+var z1y = global.z1_y_pos
+var z2x = global.z2_x_pos
+var z2y = global.z2_y_pos
+var z3x = global.z3_x_pos
+var z3y = global.z3_y_pos
 M671 X{var.z0x}:{var.z1x}:{var.z2x}:{var.z3x} Y{var.z0y}:{var.z1y}:{var.z2y}:{var.z3y} S20
 
 ; on power-on we can't necessarily trust that the gantry is level enough to the bed

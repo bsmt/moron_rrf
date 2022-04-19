@@ -58,25 +58,25 @@ global b_current    = 1200  ; mA
 ; 
 global z0_motor      = 5
 global invert_z0     = false
-global z1_motor      = 8
+global z1_motor      = 6
 global invert_z1     = false
 global z2_motor      = 7
 global invert_z2     = false
-global z3_motor      = 6
+global z3_motor      = 8
 global invert_z3     = false
 global z_microsteps  = 16
 global z_step_angle  = 1.8
 global z_current     = 1000  ; mA
 ; Z QGL "lead screw" position parameters
 ; measure from nozzle at min and max positions to each belt
-global z0_x_offset = 0
-global z0_y_offset = 0
-global z1_x_offset = 0
-global z1_y_offset = 0
-global z2_x_offset = 0
-global z2_y_offset = 0
-global z3_x_offset = 0
-global z3_y_offset = 0
+global z0_x_pos = -43
+global z0_y_pos = -5
+global z1_x_pos = -43
+global z1_y_pos = 420
+global z2_x_pos = 393
+global z2_y_pos = 420
+global z3_x_pos = 393
+global z3_y_pos = -5
 
 ; E motor
 global e0_motor              = 3
