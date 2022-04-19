@@ -5,6 +5,9 @@
 ; the input is pulled up and the switch activating pulls it to ground
 ; so, if it's not connected it will appear triggered
 
+; sleep to let things settle
+G4 P200  ; sleep 200ms
+
 if sensors.probes[0].value[0] == global.klicky_triggered_val
     set global.klicky_attached = false
 elif sensors.probes[0].value[0] == global.klicky_idle_val

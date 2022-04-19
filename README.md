@@ -9,15 +9,15 @@ Features:
 
 ## TODO:
 
-* come up with documentation system for globals created/set by scripts
-* homing scripts
-* Use low current modes as appropriate
-** Z hops, homing
-* Mesh
 * Klicky stuff
 ** deployprobe.g, retractprobe.g
 ** init.g
 ** "autoz"
+* QGL
+* come up with documentation system for globals created/set by scripts
+* Use low current modes as appropriate
+** Z hops, homing
+* Mesh
 * DAA/input shaping
 * nozzle wiping
 * nevermore stuff
