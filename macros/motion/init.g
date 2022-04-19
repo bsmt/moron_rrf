@@ -13,12 +13,12 @@ M584 E{global.e0_motor}
 ;;;;; Set axis min/max
 ; mins
 M208 X{global.x_min} S1
-M208 X{global.y_min} S1
-M208 X{global.z_min} S1
+M208 Y{global.y_min} S1
+M208 Z{global.z_min} S1
 ; max
 M208 X{global.x_max} S0
-M208 X{global.y_max} S0
-M208 X{global.z_max} S0
+M208 Y{global.y_max} S0
+M208 Z{global.z_max} S0
 
 ;;;;; set microstepping factors
 ; this must be done before the M92 steps/mm commands

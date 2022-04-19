@@ -6,3 +6,12 @@ elif global.z_probe_type == "klicky"
         set global.can_home = false
     else
         set global.can_home = true
+else
+    echo "ERROR: Unknown probe type"
+    echo global.z_probe_type
+
+
+if global.klicky_attached == true
+    set global.can_home = false
+else
+    set global.can_home = true

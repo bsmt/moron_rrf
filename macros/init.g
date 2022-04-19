@@ -4,7 +4,7 @@ M111 S0  ; debug off
 M550 P{global.machine_name}  ; set machine name
 
 M552 S1                                           ; start network module
-M586 P1 S1                                        ; disable FTP
+M586 P1 S0                                        ; disable FTP
 M586 P2 S0                                        ; disable Telnet
 
 M555 P2					    ; Set output to look like Marlin
