@@ -10,6 +10,7 @@ Features:
 ## TODO:
 
 * QGL
+* klicky homing
 * Klicky autoz
 * come up with documentation system for globals created/set by scripts
 * Use low current modes as appropriate
@@ -18,7 +19,8 @@ Features:
 * DAA/input shaping
 * nozzle wiping
 * nevermore stuff
-* chamber thermistor/heating stuff
+* inductive everything
+* startup script (homing, preheating, leveling, etc)
 * cleanup once everything is done-ish
 
 ## Development

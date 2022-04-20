@@ -17,7 +17,7 @@ global z_endstop_pin = "zstop"
 ; options are:
 ; - "endstop" (homes with the normal z endstop)
 ; - "probe"   (uses your Z probe to home)
-global z_home_style = "endstop"
+global z_home_method = "probe"
 
 ;;;;; z probe
 ; Z probe type options are:
