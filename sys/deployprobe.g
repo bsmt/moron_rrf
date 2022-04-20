@@ -1,7 +1,4 @@
-if global.z_probe_type == "klicky" && global.klicky_attached == true
-    ;echo "Klicky already attached"
-    M400
-elif global.z_probe_type == "klicky" && !global.doing_qgl
+if global.z_probe_type == "klicky"
     M98 P"/macros/motion/positioning/zhop_up.g"
 
     M98 P"/macros/motion/probe/klicky/load_probe.g"
