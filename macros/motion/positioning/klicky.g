@@ -6,5 +6,5 @@
 
 G90  ; absolute
 ; move X and Y separately
-G1 X{global.probe_dock_x} F{global.klicky_load_speed}
-G1 Y{global.probe_dock_y} F{global.klicky_load_speed}
+G1 X{global.probe_dock_x} F{global.fast_move_feed}
+G1 Y{global.probe_dock_y} F{global.fast_move_feed}

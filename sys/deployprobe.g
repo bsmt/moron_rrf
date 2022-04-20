@@ -1,4 +1,4 @@
-if global.z_probe_type == "klicky"
+if global.z_probe_type == "klicky" && !global.doing_qgl
     M98 P"/macros/motion/positioning/zhop_up.g"
 
     M98 P"/macros/motion/probe/klicky/load_probe.g"

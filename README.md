@@ -10,7 +10,6 @@ Features:
 ## TODO:
 
 * QGL
-* klicky homing
 * Klicky autoz
 * come up with documentation system for globals created/set by scripts
 * Use low current modes as appropriate
