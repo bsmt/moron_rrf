@@ -1,4 +1,4 @@
-; TODO: declare probe globals here
+; declare any probe globals here
 if !exists(global.klicky_attached)
     global klicky_attached = false  ; tracking if the klicky is attached to the toolhead
 if !exists(global.klicky_triggered_val)

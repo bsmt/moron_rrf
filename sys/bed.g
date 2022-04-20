@@ -7,7 +7,6 @@ if global.need_derack
     M98 P"/macros/motion/probe/qgl/derack.g"
 
 if global.need_derack == false
-    ; TODO: set_iheight.g equivalent?
     M98 P"/macros/motion/probe/qgl/qgl_points.g"
     M400
     M98 P"/macros/motion/probe/qgl/qgl_points.g"

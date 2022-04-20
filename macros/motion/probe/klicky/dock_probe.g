@@ -2,9 +2,8 @@
 M98 P"/macros/motion/positioning/klicky.g"
 
 G91  ; relative
-; TODO: put X wipe distance in settings.g
 G1 Y50 F{global.klicky_load_speed}
-G1 X50 F{global.klicky_load_speed}
+G1 X{global.klicky_wipe_distance} F{global.klicky_load_speed}
 G1 Y-50 F{global.klicky_load_speed}
 G90  ; absolute
 

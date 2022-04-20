@@ -39,6 +39,9 @@ global probe_y_offset = 18.0  ; mm
 ; if using klicky, the "probe" option will also do automatic Z offset calibration
 global z_home_method = "probe"
 
+; klicky settings (ignore if using inductive probe)
+global klicky_wipe_distance = 50  ; mm, use negative to move left
+
 ;;;;; motors
 ; For CoreXY, RepRapFirmware assumes the "X" motor will move in +X and +Y directions
 ; This should be A on the Voron
