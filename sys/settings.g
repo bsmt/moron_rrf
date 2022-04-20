@@ -8,16 +8,11 @@ global y_max = 350
 global z_min = 0
 global z_max = 350
 
-;;;;; endstops/hoping
+;;;;; endstops
 ; These are duet pin names, so you can still use ! and ^
 global x_endstop_pin = "xstop"
 global y_endstop_pin = "ystop"
 global z_endstop_pin = "zstop"
-; how the Z axis is homed
-; options are:
-; - "endstop" (homes with the normal z endstop)
-; - "probe"   (uses your Z probe to home)
-global z_home_method = "probe"
 
 ;;;;; z probe
 ; Z probe type options are:
@@ -25,9 +20,24 @@ global z_home_method = "probe"
 ; - inductive
 global z_probe_type   = "klicky"
 global z_probe_pin    = "^zprobe.in"
-; z_probe_offset is straightforward for inductive sensors
-; for klicky, it is roughly the distance between the switch tip and the switch body
-global z_probe_offset = 0.47  ; mm
+; Z offset
+; for inductive sensors, it is the height difference of the nozzle touching the bed and the sensor triggering
+; for klicky, it is roughly the distance between the switch tip and the switch body.
+; the actual Z offset will then be calculated later on during homing
+; increase offset to move the nozzle closer to the bed
+global probe_z_offset = 0.46  ; mm
+
+; X/Y offsets for the probe
+; good values for klicky: (0, 18)
+global probe_x_offset = 0.0   ; mm
+global probe_y_offset = 18.0  ; mm
+
+; how the Z axis is homed
+; options are:
+; - "endstop" (homes with the normal z endstop)
+; - "probe"   (uses your Z probe on the bed to home)
+; if using klicky, the "probe" option will also do automatic Z offset calibration
+global z_home_method = "probe"
 
 ;;;;; motors
 ; For CoreXY, RepRapFirmware assumes the "X" motor will move in +X and +Y directions

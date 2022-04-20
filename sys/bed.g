@@ -11,6 +11,7 @@ if global.need_derack
 if global.need_derack == false
     ; TODO: set_iheight.g equivalent?
     M98 P"/macros/motion/probe/qgl/qgl_points.g"
+    M400
     M98 P"/macros/motion/probe/qgl/qgl_points.g"
 else
     echo "Deracking failed"

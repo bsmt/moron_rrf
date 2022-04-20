@@ -14,6 +14,9 @@ var slow = var.slow_feed * 60
 var fast = var.fast_feed * 60
 M558 P5 C{global.z_probe_pin} H{var.start_height} F{var.fast}:{var.slow} T{var.move_speed * 60} R{var.settle_time} A{var.repeat} S{var.tolerance} B1 K0
 
+; inductive probes have a static z offset, so we can use the one the user provided
+set global.z_offset = global.probe_z_offset
+
 ; probe z offset configured in settings.g
 ; TODO: G31 temp compensation (S and T params)
-G31 P{var.trigger} X{var.x_offset} Y{var.y_offset} Z{global.z_probe_offset}
+G31 P{var.trigger} X{var.x_offset} Y{var.y_offset} Z{global.z_offset}

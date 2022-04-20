@@ -6,7 +6,7 @@
 ; so, if it's not connected it will appear triggered
 
 ; sleep to let things settle
-G4 P200  ; sleep 200ms
+G4 P50  ; sleep 50ms
 
 if sensors.probes[0].value[0] == global.klicky_triggered_val
     set global.klicky_attached = false
@@ -17,4 +17,4 @@ else
 ; for whatever reason, can_home_xy will fail if we don't have an echo or sleep here
 ; i'm wondering if it's a timing issue
 ;echo "Klicky attached: ", {global.klicky_attached}
-G4 P200  ; sleep 200ms
+G4 P50  ; sleep 50ms

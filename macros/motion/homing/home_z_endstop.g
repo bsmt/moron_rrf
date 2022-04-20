@@ -1,4 +1,4 @@
-; home Z axis using the endstop switch
+; home Z axis using the nozzle on the endstop switch
 
 var fast_speed = 10  ; mm/s
 var slow_speed = 1  ; mm/s
@@ -24,7 +24,7 @@ if global.can_home_z == true
     ; follow-up slow home
     G1 H1 Z-5 F{var.slow_speed * 60}
     G1 H0 Z10 F{var.fast_speed * 60}
-
-    ; TODO: do we need to set an offset?
 else
-    echo "Cannot home Z. Check probe."
+    abort "Cannot do Z endstop home. Check probe."
+
+G4 P50  ; dwell to fix a dumb bug with auto-z homing

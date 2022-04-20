@@ -9,8 +9,6 @@ Features:
 
 ## TODO:
 
-* QGL
-* Klicky autoz
 * come up with documentation system for globals created/set by scripts
 * Use low current modes as appropriate
 ** Z hops, homing
@@ -20,6 +18,7 @@ Features:
 * nevermore stuff
 * inductive everything
 * startup script (homing, preheating, leveling, etc)
+* print start script
 * cleanup once everything is done-ish
 
 ## Development

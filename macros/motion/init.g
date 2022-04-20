@@ -122,3 +122,8 @@ M671 X{var.z0x}:{var.z1x}:{var.z2x}:{var.z3x} Y{var.z0y}:{var.z1y}:{var.z2y}:{va
 ; on power-on we can't necessarily trust that the gantry is level enough to the bed
 ; so we need to make sure it at least gets somewhat parallel first before we can do QGL
 global need_derack = true
+
+; actual z offset value
+; this will either be set to probe_z_offset (for inductive)
+; or it will be automatically calculated for klicky
+global z_offset = 0.00

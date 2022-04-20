@@ -26,6 +26,10 @@ def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path,
 # TODO: "unknown value" linter. find references to variables that aren't defined
 # it shouldn't be *too* hard
 
+# TODO: check for infinite while loops
+# either while trues with no break
+# or a while where the variable isn't modified in the body
+
 def lint_line_length(file: pathlib.Path):
     '''Find any commands that are > 160 chars.
     Duet currently cannot handle longer lines.
