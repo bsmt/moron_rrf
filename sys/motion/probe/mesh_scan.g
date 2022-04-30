@@ -18,6 +18,7 @@ M401  ; load probe
 
 ; we need to manually move to the first XY point first
 ; otherwise it will do a linear XYZ move, which triggers klicky prematurely
+G90
 G1 X{var.x_min} Y{var.y_min}
 G29 S0  ; do the actual mesh probing
 
