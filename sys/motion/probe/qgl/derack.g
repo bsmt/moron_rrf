@@ -4,7 +4,7 @@
 var derack_feed = 13  ; mm/s
 M558 A1 H30 F{var.derack_feed * 60} K0  ; only probe once and start higher.
 
-M98 P"/macros/motion/probe/qgl/derack_points.g"
+M98 P"/sys/motion/probe/qgl/derack_points.g"
 
-M98 P"/macros/motion/probe/init.g"  ; reset probe settings
+M98 P"/sys/motion/probe/init.g"  ; reset probe settings
 set global.need_derack = false  ; finalize need_derack flag after init

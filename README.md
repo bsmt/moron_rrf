@@ -5,10 +5,13 @@ It takes advantage of RRF 3.3's new GCode meta commands, which lets us write cle
 There is still a good amount of influence and inspiration taken from prior configurations.
 
 Features:
-* Configuration via variables in a single settings.g file.
+* Configuration via variables in a single settings.g file. You don't have to dig through and edit every file to support your printer, unless you want to change the specific behavior of a procedure.
 
 ## TODO:
 
+* move macros library into sys/
+** there's no point in putting it in macros, and it makes things harder to keep track of
+* write testing macros
 * come up with documentation system for globals created/set by scripts
 * Use low current modes as appropriate
 ** Z hops, homing

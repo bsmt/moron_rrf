@@ -13,4 +13,4 @@ var slow = (var.slow_feed * 60)
 M558 H{var.start_height} R{var.settle_time} F{var.fast}:{var.slow} T{var.move_speed * 60} A{var.repeat} S{var.tolerance} B1 K0
 G31 P{global.klicky_triggered_val} X{global.probe_x_offset} Y{global.probe_y_offset} Z0
 
-M98 P"/macros/motion/probe/klicky/poll_klicky.g"  ; update klicky_attached so it's actually valid
+M98 P"/sys/motion/probe/klicky/poll_klicky.g"  ; update klicky_attached so it's actually valid

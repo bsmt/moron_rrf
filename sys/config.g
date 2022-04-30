@@ -194,4 +194,4 @@ global electronics_fan1_pin = "duex.fan4"
 global electronics_fan_temp = 38  ; activation MCU/driver temp, degrees C
 
 
-M98 P"/macros/init.g"
+M98 P"/sys/init.g"

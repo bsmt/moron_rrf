@@ -13,8 +13,8 @@ G90					    	; Send absolute coordinates...
 M83						    ; ...but relative extruder moves
 
 ; call subsystem initializers
-M98 P"/macros/motion/init.g"
-M98 P"/macros/heat/init.g"
+M98 P"/sys/motion/init.g"
+M98 P"/sys/heat/init.g"
 
 M501  ; load overrides
 

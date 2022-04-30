@@ -21,8 +21,8 @@ if #sensors.probes == 0  ; only declare if it doesn't already exist
     M558 P5 C{global.z_probe_pin} K0
 
 if global.z_probe_type == "inductive"
-    M98 P"/macros/motion/probe/inductive/init.g"
+    M98 P"/sys/motion/probe/inductive/init.g"
 elif global.z_probe_type == "klicky"
-    M98 P"/macros/motion/probe/klicky/init.g"
+    M98 P"/sys/motion/probe/klicky/init.g"
 else
     echo "Unknown probe type", global.z_probe_type

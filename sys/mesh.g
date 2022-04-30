@@ -2,4 +2,4 @@
 
 ; TODO: do a G32 beforehand?
 
-M98 P"/macros/motion/probe/mesh_scan.g"
+M98 P"/sys/motion/probe/mesh_scan.g"

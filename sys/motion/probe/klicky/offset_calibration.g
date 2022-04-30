@@ -15,7 +15,7 @@ var measurement_accumulator = 0.0
 M401
 
 ; do initial endstop probe with klicky
-M98 P"/macros/motion/positioning/z_endstop_klicky.g"
+M98 P"/sys/motion/positioning/z_endstop_klicky.g"
 
 G91  ; relative
 
@@ -38,9 +38,9 @@ set global.z_offset = global.z_offset + global.probe_z_offset  ; add the small s
 echo "Calibrated Z offset: ", global.z_offset
 
 ; final klicky probe on the bed
-M98 P"/macros/motion/positioning/zhop_up.g"
+M98 P"/sys/motion/positioning/zhop_up.g"
 
-M98 P"/macros/motion/positioning/center.g"
+M98 P"/sys/motion/positioning/center.g"
 
 G30
 

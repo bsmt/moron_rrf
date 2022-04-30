@@ -85,9 +85,9 @@ else
     M569 P{global.e0_motor} S1
 
 ;;;;; Set motor current/speed limits
-M98 P"/macros/motion/power/xy_high.g"
-M98 P"/macros/motion/power/z_high.g"
-M98 P"/macros/motion/power/e_high.g"
+M98 P"/sys/motion/power/xy_high.g"
+M98 P"/sys/motion/power/z_high.g"
+M98 P"/sys/motion/power/e_high.g"
 ; Motor idle time and current
 ; This could go in settings.g
 M84 S30   ; idle after N seconds
@@ -102,10 +102,10 @@ M574 Y2 P{global.y_endstop_pin}
 M574 Z1 P{global.z_endstop_pin}
 
 ; init probe subsystem
-M98 P"/macros/motion/probe/init.g"
+M98 P"/sys/motion/probe/init.g"
 
 ; init homing subsystem. call after probe init because it can need probe globals
-M98 P"/macros/motion/homing/init.g"
+M98 P"/sys/motion/homing/init.g"
 
 ; setup QGL z leadscrew offsets
 ; redefining values to fit line length requirement
