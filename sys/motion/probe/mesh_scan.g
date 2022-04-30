@@ -16,6 +16,9 @@ G29 S2  ; disable mesh compensation
 
 M401  ; load probe
 
+; we need to manually move to the first XY point first
+; otherwise it will do a linear XYZ move, which triggers klicky prematurely
+G1 X{var.x_min} Y{var.y_min}
 G29 S0  ; do the actual mesh probing
 
 M402  ; put probe back
