@@ -30,6 +30,11 @@ def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path,
 # either while trues with no break
 # or a while where the variable isn't modified in the body
 
+# TODO: check for bad macro parameter names
+# for custom M-code or G-code handlers, there are a few "banned" parameter names
+# they currently are G, M, N, T
+# see https://docs.duet3d.com/User_manual/Reference/Gcode_meta_commands
+
 def lint_line_length(file: pathlib.Path):
     '''Find any commands that are > 160 chars.
     Duet currently cannot handle longer lines.
@@ -95,6 +100,13 @@ def lint_move_no_coordinate_setup(file: pathlib.Path):
             pass
 
 
+def lint_bad_param_name(file: pathlib.Path):
+    matches = find_matches(file, r"param\.G|param\.M|param\.N|param\.T")
+    for f, line, line_no in matches:
+        print(f"Line {line_no} - Bad macro parameter name. G, M, N, and T are not allowed.")
+        print(">\t" + line)
+
+
 def lint_empty_file(file: pathlib.Path):
     size = file.stat().st_size
     if size < 1:
@@ -120,6 +132,7 @@ def main():
         lint_m98_no_p(file)
         lint_m98_bad_path(file, root=src_path)
         lint_move_no_coordinate_setup(file)
+        lint_bad_param_name(file)
         lint_empty_file(file)
 
         print("-" * 80)
