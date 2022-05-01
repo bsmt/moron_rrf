@@ -105,7 +105,6 @@ def upload_directory(printer, local_path: Path, dest_root: PurePosixPath):
     # create empty dirs first
     #create_directories(printer, local_path, dest_root)
 
-
     # filter out things we don't want to upload (.git, util)
     all_files = list(local_path.rglob("*"))
     filtered_files = []
@@ -113,6 +112,8 @@ def upload_directory(printer, local_path: Path, dest_root: PurePosixPath):
         if ".git" in p.parts:
             pass
         elif p.parts[0] == "util":
+            pass
+        elif p.parts[0] == "doc":
             pass
         else:
             filtered_files.append(p)
