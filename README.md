@@ -9,20 +9,23 @@ Features:
 
 ## TODO:
 
-* move macros library into sys/
-** there's no point in putting it in macros, and it makes things harder to keep track of
+* fix Push() stack overflow in start.g when starting print
+** I think the problem is in home_z somewhere?
+** maybe we have too many nested macro calls and the call stack is too big?
+* Fix stop macro
+** it doesn't get called at the end of a print. do we need a different file?
+* make move speeds more consistent
+* fix stall detection
+* pause/resume
 * write testing macros
 * come up with documentation system for globals created/set by scripts
-* Use low current modes as appropriate
-** Z hops, homing
-* Mesh
 * DAA/input shaping
 * nozzle wiping
 * nevermore stuff
 * inductive everything
 * startup script (homing, preheating, leveling, etc)
-* print start script
 * cleanup once everything is done-ish
+* documentation
 
 ## Development
 

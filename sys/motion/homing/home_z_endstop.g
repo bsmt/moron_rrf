@@ -1,7 +1,7 @@
 ; home Z axis using the nozzle on the endstop switch
 
-var fast_speed = 10  ; mm/s
-var slow_speed = 1  ; mm/s
+var fast_speed = 15  ; mm/s
+var slow_speed = 2   ; mm/s
 
 M98 P"/sys/motion/homing/can_home_z.g"
 

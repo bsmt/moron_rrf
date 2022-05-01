@@ -5,16 +5,12 @@ var n_tests = 25
 if exists(param.S)
     set var.n_tests = param.S
 
-var x_center = (global.x_max - global.x_min) / 2
-var y_center = (global.y_max - global.y_min) / 2
-
 M401
 
 ; move to XY position ahead of time
 ; otherwise it will do a diagonal XYZ move, which can cause klicky to hit the bed
 ; this is similar to an issue i had in mesh_scan.g
-G90
-G1 X{var.x_center} Y{var.y_center}
+M98 P"/sys/motion/positioning/center.g"
 
 var max_iter = var.n_tests - 1
 while iterations < var.max_iter    

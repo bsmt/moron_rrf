@@ -14,4 +14,4 @@ M566 E{global.e_max_jerk * 60}
 ; R3 will execute /sys/rehome.g, which we could use
 ; The S (sensitivity) value hasn't been tuned
 ; TODO: sensitivity should probably go in settings.g
-M915 P{global.e0_motor} F0 S3 R2
+;M915 P{global.e0_motor} F0 S3 R2

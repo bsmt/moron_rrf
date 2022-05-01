@@ -1,8 +1,8 @@
 var fast_feed = 13  ; mm/s
-var slow_feed = 5  ; mm/s
+var slow_feed = 2  ; mm/s
 var move_speed = 100  ; mm/s
 ;var start_height = 1.45  ; mm
-var start_height = 3  ; mm
+var start_height = 10  ; mm  TODO: reduce
 var settle_time = 0.1  ; s
 var repeat = 7  ; this is a max, not a constant number of repetitions
 var tolerance = 0.005  ; mm

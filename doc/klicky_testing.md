@@ -65,8 +65,8 @@ After doing the 2 mm/s tests, I dont think the temperature is as important as I 
 
 Interestingly, 2 mm/s probing had consistently lower deviation and range than 1 mm/s for both probes.
 This is great because 1 mm/s probes are quite noisy on my printer, and obviously slower.
-What's even more interesting is that 5 mm/s had similar deviation and range performance.
-I think it's safe to use 5 mm/s for a slow probing speed with klicky.
+What's even more interesting is that 5 mm/s had similar deviation and range performance. 2 mm/s is probably the safest bet, however.
+This aligns closely with the euclid measurement data.
 
 # Improvements
 It would be nice to store all data in a CSV.

@@ -14,7 +14,7 @@ M205 X{global.x_max_jerk} Y{global.y_max_jerk}  ; max jerk
 ; R3 will execute /sys/rehome.g, which we could use
 ; The S (sensitivity) value hasn't been tuned
 ; TODO: sensitivity should probably go in settings.g
-M915 X Y S1 F0 R2
+;M915 X Y S3 F0 R2
 
 ; TODO: input shaping
 
