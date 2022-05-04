@@ -14,8 +14,8 @@ M98 P"/sys/motion/positioning/center.g"
 
 var max_iter = var.n_tests - 1
 while iterations < var.max_iter    
-    G30 P{iterations} X{var.x_center} Y{var.y_center} Z-99999
+    G30 P{iterations} Z-99999
 ; last probe
-G30 P{var.n_tests} X{var.x_center} Y{var.y_center} Z-99999 S-1
+G30 P{var.n_tests} Z-99999 S-1
 
 M402

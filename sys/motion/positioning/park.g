@@ -1,5 +1,5 @@
 ; a safe parking location
-; this is distinct from the center point because GE5C Z joints tend to sag,
+; this is distinct from the center point because GE5C Z joints tend to sag
 ; unless you park the toolhead in the front of the printer
 ; uses coordinates from sys/settings.g:
 ; global.park_x, global.park_y

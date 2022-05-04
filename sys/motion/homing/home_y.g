@@ -15,7 +15,7 @@ if global.can_home_xy == true
 
     M98 P"/sys/motion/power/xy_low.g"
 
-    G1 H1 Y{global.y_max} F{var.homing_speed * 60}  ; initial fast home
+    G1 H1 Y{global.y_max + 10} F{var.homing_speed * 60}  ; initial fast home
     G1 H0 Y-10 F{var.homing_speed * 60}  ; move back
     G1 H1 Y11 F{var.homing_speed_slow * 60}
     G1 H0 Y-10 F{var.homing_speed * 60}

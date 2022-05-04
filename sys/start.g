@@ -1,8 +1,15 @@
-; pre-print procedure
+; pre-print procedure, called before a print starts
 
 ; Home X/Y
 ;M98 P"/sys/motion/homing/home_x.g"
 ;M98 P"/sys/motion/homing/home_y.g"
+
+; TODO: fix this!
+; we get a stack overflow on the home_z macro call
+; https://github.com/Duet3D/RepRapFirmware/blob/0a1b2ee0cfc7c344a9fa5f27be45fd30b7b9d54b/src/GCodes/GCodes.cpp#L1452
+; https://github.com/Duet3D/RepRapFirmware/blob/873b5056cba92eb4514d8b8256c7c9e25fe315ab/src/Config/Configuration.h#L249
+; I *think* if we update to 3.4 and make it the minimum, we'll be fine?
+; It sounds like the gcode macro call stack is too big
 
 ; manual QGL so we don't have to get the probe again
 M401

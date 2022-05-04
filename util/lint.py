@@ -30,10 +30,10 @@ def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path,
 # either while trues with no break
 # or a while where the variable isn't modified in the body
 
-# TODO: check for bad macro parameter names
-# for custom M-code or G-code handlers, there are a few "banned" parameter names
-# they currently are G, M, N, T
-# see https://docs.duet3d.com/User_manual/Reference/Gcode_meta_commands
+# TODO: check for macro call stack overflow
+# RRF < 3.4 can only do 7 nested calls
+# RRF 3.4 can do 10
+# I've definitely run into this limitation before, and I think we could check it statically
 
 def lint_line_length(file: pathlib.Path):
     '''Find any commands that are > 160 chars.

@@ -7,9 +7,9 @@ var homing_speed_slow = 2.5    ; mm/s
 M98 P"/sys/motion/homing/can_home_xy.g"
 
 if global.can_home_xy == true
-    G91  ; relative
-
     M98 P"/sys/motion/power/xy_low.g"
+
+    G91  ; relative
 
     G1 H1 X{global.x_max + 10} F{var.homing_speed * 60}  ; initial fast home
     G1 H2 X-10 F{var.homing_speed * 60}  ; move back

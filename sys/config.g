@@ -11,7 +11,7 @@ global z_max = 350
 ;;;;; endstops
 ; These are duet pin names, so you can still use ! and ^
 global x_endstop_pin = "xstop"
-global y_endstop_pin = "ystop"
+global y_endstop_pin = "!ystop"  ; my hall effect endstop is weird. YMMV
 global z_endstop_pin = "zstop"
 
 ;;;;; z probe
@@ -194,4 +194,7 @@ global electronics_fan1_pin = "duex.fan4"
 global electronics_fan_temp = 38  ; activation MCU/driver temp, degrees C
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; DO NOT EDIT ANYTHING BELOW THIS LINE
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 M98 P"/sys/init.g"
