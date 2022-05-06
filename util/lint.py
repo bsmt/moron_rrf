@@ -35,6 +35,7 @@ def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path,
 # RRF 3.4 can do 10
 # I've definitely run into this limitation before, and I think we could check it statically
 
+
 def lint_line_length(file: pathlib.Path):
     '''Find any commands that are > 160 chars.
     Duet currently cannot handle longer lines.
@@ -107,6 +108,13 @@ def lint_bad_param_name(file: pathlib.Path):
         print(">\t" + line)
 
 
+def lint_incorrect_parameter_multiple_values(file: pathlib.Path):
+    matches = find_matches(file, r"\}:\{")
+    for f, line, line_no in matches:
+        print(f"Line {line_no} - Deprecated syntax for multiple values in parameter. This can cause weird issues." + "Use P{var1, var2, var3} instead.")
+        print(">\t" + line)
+
+
 def lint_empty_file(file: pathlib.Path):
     size = file.stat().st_size
     if size < 1:
@@ -133,6 +141,7 @@ def main():
         lint_m98_bad_path(file, root=src_path)
         lint_move_no_coordinate_setup(file)
         lint_bad_param_name(file)
+        lint_incorrect_parameter_multiple_values(file)
         lint_empty_file(file)
 
         print("-" * 80)

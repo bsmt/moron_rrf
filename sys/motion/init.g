@@ -10,8 +10,8 @@ M669 K1  ; CoreXY mode
 ; or any other commands that deal with the axis
 M584 X{global.a_motor}
 M584 Y{global.b_motor}
-M584 Z{global.z0_motor}:{global.z1_motor}:{global.z2_motor}:{global.z3_motor}
 M584 E{global.e0_motor}
+M584 Z{global.z0_motor, global.z1_motor, global.z2_motor, global.z3_motor}
 
 ;;;;; Set axis min/max
 ; mins
@@ -117,7 +117,7 @@ var z2x = global.z2_x_pos
 var z2y = global.z2_y_pos
 var z3x = global.z3_x_pos
 var z3y = global.z3_y_pos
-M671 X{var.z0x}:{var.z1x}:{var.z2x}:{var.z3x} Y{var.z0y}:{var.z1y}:{var.z2y}:{var.z3y} S20
+M671 X{var.z0x, var.z1x, var.z2x, var.z3x} Y{var.z0y, var.z1y, var.z2y, var.z3y} S20
 
 ; actual z offset value
 ; this will either be set to probe_z_offset (for inductive)

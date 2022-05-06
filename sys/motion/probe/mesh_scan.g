@@ -10,7 +10,7 @@ var x_min = {global.x_min + var.mesh_x_offset}
 var x_max = {global.x_max - var.mesh_x_offset}
 var y_min = {global.y_min + var.mesh_y_offset}
 var y_max = global.y_max - var.mesh_y_offset
-M557 X{var.x_min}:{var.x_max} Y{var.y_min}:{var.y_max} P{global.n_mesh_points}
+M557 X{var.x_min, var.x_max} Y{var.y_min, var.y_max} P{global.n_mesh_points}
 
 G29 S2  ; disable mesh compensation
 
