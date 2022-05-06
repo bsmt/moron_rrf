@@ -46,6 +46,10 @@ if global.chamber_sensor_installed
 
 ;;;;;  fans
 
+; TODO: we should probably separate these to another module
+; and make macros for turning each fan on/off
+; that or parameterize the fan number so we don't have to keep track of them and hardcode constants
+
 ; part fan
 ; we declare the part fan as fan 0 so that it's the default fan for the hotend
 ; this way g-code can easily adjust it with no slicer config
@@ -57,20 +61,29 @@ M950 F1 C{global.hotend_fan_pin}
 M106 P1 H1 T{global.hotend_fan_temp} S{global.hotend_fan_speed} C{global.hotend_fan_name}  ; enable automatic temp control
 
 ; chamber fan
-M950 F2 C{global.chamber_fan_pin}
-M106 P2 H-1 C{global.chamber_fan_name}  ; no temp control
+if exists(global.chamber_fan_pin)
+    M950 F2 C{global.chamber_fan_pin}
+    M106 P2 H-1 C{global.chamber_fan_name}  ; disable temp control and set fan name in UI
 
 ; electronics fans
-; Set up sensors for driver overtemp flag and MCU temp
-M308 S10 Y"mcu-temp" A"MCU" ; MCU temp sensor
-M308 S11 Y"drivers" A"Duet Drivers"  ; Main duet stepper drivers
-M308 S12 Y"drivers-duex" A"Duex Drivers"  ; Duex stepper drivers
-; create individual fans
-M950 F3 C{global.electronics_fan0_pin}
-M950 F4 C{global.electronics_fan1_pin}
-; setup temp activation for electronics
-M106 P3 H10:11:12 L0.30 X1.0 B1.0 T{global.electronics_fan_temp}
-M106 P4 H10:11:12 L0.30 X1.0 B1.0 T{global.electronics_fan_temp}
+if exists(global.electronics_fan0_pin)
+    ; Set up sensors for driver overtemp flag and MCU temp
+    M308 S10 Y"mcu-temp" A"MCU" ; MCU temp sensor
+    M308 S11 Y"drivers" A"Duet Drivers"  ; Main duet stepper drivers
+    M308 S12 Y"drivers-duex" A"Duex Drivers"  ; Duex stepper drivers
+    ; create individual fans
+    M950 F3 C{global.electronics_fan0_pin}
+    ; setup temp activation for electronics
+    M106 P3 H10:11:12 L0.30 X1.0 B1.0 T{global.electronics_fan_temp}
+    ; in case we only have one fan
+    if exists(global.electronics_fan1_pin)
+        M950 F4 C{global.electronics_fan1_pin}
+        M106 P4 H10:11:12 L0.30 X1.0 B1.0 T{global.electronics_fan_temp}
+
+; nevermore fan
+if exists(global.nevermore_fan_pin)
+    M950 F5 C{global.nevermore_fan_pin}
+    M106 P5 H-1 C{global.nevermore_fan_name}  ; disable temp control and set fan name in UI
 
 ;;;;; setup hotend tool
 M563 P0 D0 H1 F0 S"Hotend"

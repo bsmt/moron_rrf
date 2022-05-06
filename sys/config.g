@@ -27,8 +27,7 @@ global z_probe_pin    = "^zprobe.in"
 ; increase offset to move the nozzle closer to the bed
 global probe_z_offset = 0.46  ; mm
 
-; X/Y offsets for the probe
-; good values for klicky: (0, 18)
+; X/Y offsets for klicky dock
 global probe_x_offset = 0.0   ; mm
 global probe_y_offset = 18.0  ; mm
 
@@ -174,6 +173,9 @@ global chamber_sensor_beta = 4700
 
 
 ;;;;; fans
+; electronics, chamber, and nevermore fans are optional.
+; you can simply comment out those sections if they are unused.
+
 ; part fan
 global part_fan_pin         = "fan0"
 global part_fan_name        = "Part Fan"
@@ -187,12 +189,17 @@ global hotend_fan_speed     = 0.8  ; 0.0 to 1.0, speed %
 ; chamber fan
 global chamber_fan_pin      = "duex.fan5"
 global chamber_fan_name     = "Enclosure Fan"
+global chamber_fan_speed    = 1.0
 
 ; electronics fans
 global electronics_fan0_pin = "duex.fan3"
 global electronics_fan1_pin = "duex.fan4"
 global electronics_fan_temp = 38  ; activation MCU/driver temp, degrees C
 
+; nevermore fan
+global nevermore_fan_pin = "fan2"
+global nevermore_fan_name = "Nevermore Fan"
+global nevermore_fan_speed = 0.8
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; DO NOT EDIT ANYTHING BELOW THIS LINE
