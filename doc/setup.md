@@ -2,6 +2,18 @@
 
 This is a rough procedure to *safely* get your printer running with this configuration.
 
+## SD/Wifi Setup
+
+If this is a fresh install, you'll need to setup the SD card with RepRapFirmware first.
+
+Follow this guide: https://duet3d.dozuki.com/Wiki/SD_Card.
+
+And this guide: https://duet3d.dozuki.com/Wiki/Installing_and_Updating_Firmware
+
+You can use the (configtool)[https://configtool.reprapfirmware.org/] to get an initial directory. Just select whatever base config, make sure you select the correct base board and firmware version, and then click next until you can download a zip. Note that this configuration requires 3.4 or newer. We're going to overwrite everything in /sys and /macros anyways, so the config doesn't matter. Extract the zip and copy over the firmware and www directories to your SD card. Then, copy the sys and macros directories from this repository to your SD card.
+
+If the firmware version provided by configtool is not new enough, or if you just want to update to the latest, download the Duet2And3Firmware-*.zip file from https://github.com/Duet3D/RepRapFirmware/releases. Then, open the Duet web panel, go to Settings/Machine-Specific and click Install Update. Then upload the zip and wait for it to finish. Now you should be at the latest version.
+
 ## Initial Config Changes
 
 Go through sys/config.g and edit the basic machine-specific variables. For now, you should adjust the following at a minimum:
