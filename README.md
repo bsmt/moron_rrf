@@ -9,13 +9,6 @@ Features:
 
 ## TODO:
 
-* fix Push() stack overflow in start.g when starting print
-** I think the problem is in home_z somewhere?
-** maybe we have too many nested macro calls and the call stack is too big?
-** https://github.com/Duet3D/RepRapFirmware/blob/0a1b2ee0cfc7c344a9fa5f27be45fd30b7b9d54b/src/GCodes/GCodes.cpp#L1452
-** https://github.com/Duet3D/RepRapFirmware/blob/873b5056cba92eb4514d8b8256c7c9e25fe315ab/src/Config/Configuration.h#L249
-*** this indicates stack depth was increased in 3.4
-*** simply upgrading might solve our problem?
 * Fix stop macro
 ** it doesn't get called at the end of a print. do we need a different file?
 * make move speeds more consistent
@@ -25,7 +18,6 @@ Features:
 * come up with documentation system for globals created/set by scripts
 * DAA/input shaping
 * nozzle wiping
-* nevermore stuff
 * inductive everything
 * startup script (homing, preheating, leveling, etc)
 * cleanup once everything is done-ish
