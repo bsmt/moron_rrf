@@ -1,7 +1,7 @@
 # Moron
 
 A mostly from-scratch Voron 2.4 configuration for RepRapFirmware 3.3 or newer.
-It takes advantage of RRF 3.3's new GCode meta commands, which lets us write cleaner code and helps streamline procedures.
+It takes advantage of RRF 3.4's new GCode meta commands, which lets us write cleaner code and helps streamline procedures.
 There is still a good amount of influence and inspiration taken from prior configurations.
 
 Features:
@@ -9,11 +9,9 @@ Features:
 
 ## TODO:
 
-* Fix stop macro
-** it doesn't get called at the end of a print. do we need a different file?
 * make move speeds more consistent
 * fix stall detection
-* pause/resume
+* make PA calibration macro
 * write testing macros
 * come up with documentation system for globals created/set by scripts
 * DAA/input shaping
