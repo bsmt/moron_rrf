@@ -25,7 +25,7 @@ global z_probe_pin    = "^zprobe.in"
 ; for klicky, it is roughly the distance between the switch tip and the switch body.
 ; the actual Z offset will then be calculated later on during homing
 ; increase offset to move the nozzle closer to the bed
-global probe_z_offset = 0.46  ; mm
+global probe_z_offset = 0.50  ; mm
 
 ; X/Y offsets for klicky dock
 global probe_x_offset = 0.0   ; mm
@@ -41,7 +41,7 @@ global z_home_method = "probe"
 ; klicky settings (ignore if using inductive probe)
 global klicky_wipe_distance = 50  ; mm, use negative to move left
 
-global n_mesh_points = 5
+global n_mesh_points = 10
 
 ;;;;; motors
 ; For CoreXY, RepRapFirmware assumes the "X" motor will move in +X and +Y directions
@@ -143,6 +143,7 @@ global z_endstop_y = global.y_max
 global nozzle_brush_installed = false
 global brush_x = 97
 global brush_y = global.y_max
+global brush_width = 20  ; mm
 
 ;;;;; heaters/thermistors
 ; hotend
@@ -174,7 +175,7 @@ global chamber_sensor_beta = 4700
 
 ;;;;; fans
 ; electronics, chamber, and nevermore fans are optional.
-; you can simply comment out those sections if they are unused.
+; you can simply comment out any sections that you don't want to use
 
 ; part fan
 global part_fan_pin         = "fan0"
@@ -199,7 +200,7 @@ global electronics_fan_temp = 38  ; activation MCU/driver temp, degrees C
 ; nevermore fan
 global nevermore_fan_pin = "fan2"
 global nevermore_fan_name = "Nevermore Fan"
-global nevermore_fan_speed = 0.8
+global nevermore_fan_speed = 1.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; DO NOT EDIT ANYTHING BELOW THIS LINE
