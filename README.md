@@ -1,13 +1,21 @@
 # Moron
 
-A mostly from-scratch Voron 2.4 configuration for RepRapFirmware 3.3 or newer.
-It takes advantage of RRF 3.4's new GCode meta commands, which lets us write cleaner code and helps streamline procedures.
+A mostly from-scratch Voron 2.4 configuration for *RepRapFirmware 3.4 or newer*.
 There is still a good amount of influence and inspiration taken from prior configurations.
+But, we try to integrate everything into a more cohesive config layout.
+It makes heavy use of RRF 3.3's new GCode meta commands, which lets us write cleaner code and helps streamline procedures.
 
-Features:
+## Features
 * Configuration via variables in a single settings.g file. You don't have to dig through and edit every file to support your printer, unless you want to change the specific behavior of a procedure.
+* "Native" support for Klicky probes with automatic Z offset calibration (auto-z).
 
-## TODO:
+## Status
+
+All of the core features are working fine. I've been using this config exclusively for about two months now.
+It can definitely be polished further, and could use some quality of life improvements.
+But, I think it is still a lot easier to work with than other Voron RRF config's I've used in the past.
+
+## TODO
 
 * make move speeds more consistent
 * fix stall detection
@@ -30,7 +38,7 @@ It usually works fine, but you should double check that every thing is accounted
 
 duet_fw_upload.py will (optionally) wipe your old gcode configs and upload this one.
 
-lint.py will check the gcode for some common errors. It's by no means exhaustive, but it can still save a lot of time.
+lint.py will check all of the gcode for some common errors. It's by no means exhaustive, but it can save a lot of time.
 
 Using a direct serial connection via USB will make debugging early startup code a lot easier. I like to use pyserial, which you can use like so:
 
