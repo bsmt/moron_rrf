@@ -35,6 +35,21 @@ def find_matches(file: pathlib.Path, regex: str) -> Iterator[Tuple[pathlib.Path,
 # RRF 3.4 can do 10
 # I've definitely run into this limitation before, and I think we could check it statically
 
+# TODO: comments between if/elif/else blocks
+# example: something like this will not work:
+# if something
+#     do stuff here
+# ; A BAD COMMENT
+# elif another_thing
+#     ; AN OKAY COMMENT
+#     do other stuff here
+
+# TODO: Check for G0/G1 moves without explicit feedrate?
+# sometimes it implicitly uses the last set feedrate, which could be very slow if we just probed
+
+# TODO: creating vars in if/elif/else blocks
+# I've found that it destroys the vars at the end of the if block
+# So you need to create first and then modify in an if
 
 def lint_line_length(file: pathlib.Path):
     '''Find any commands that are > 160 chars.
