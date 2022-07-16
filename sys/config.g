@@ -26,7 +26,7 @@ global z_probe_pin    = "^zprobe.in"
 ; the actual Z offset will then be calculated later on during homing
 ; increase offset to move the nozzle closer to the bed
 ; inductive:
-global probe_z_offset = 4.60  ; mm
+global probe_z_offset = 3.00  ; mm
 ; klicky:
 ;global probe_z_offset = 0.50  ; mm
 

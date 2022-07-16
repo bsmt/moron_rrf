@@ -6,8 +6,8 @@ But, we try to integrate everything into a more cohesive config layout.
 It makes heavy use of RRF 3.3's new GCode meta commands, which lets us write cleaner code and helps streamline procedures.
 
 ## Features
-* Configuration via variables in a single settings.g file. You don't have to dig through and edit every file to support your printer, unless you want to change the specific behavior of a procedure.
-* "Native" support for Klicky probes with automatic Z offset calibration (auto-z).
+* Configuration via variables in a single config.g file. You don't have to dig through and edit every file to support your printer, unless you want to change the specific behavior of a procedure.
+* "Native" support for Klicky probes with automatic Z offset calibration (auto-z). Inductive is also supported with a single config line change.
 
 ## Status
 
@@ -24,7 +24,6 @@ But, I think it is still a lot easier to work with than other Voron RRF config's
 * come up with documentation system for globals created/set by scripts
 * DAA/input shaping
 * nozzle wiping
-* inductive everything
 * startup script (homing, preheating, leveling, etc)
 * cleanup once everything is done-ish
 * documentation
