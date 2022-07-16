@@ -18,14 +18,17 @@ global z_endstop_pin = "zstop"
 ; Z probe type options are:
 ; - klicky
 ; - inductive
-global z_probe_type   = "klicky"
+global z_probe_type   = "inductive"
 global z_probe_pin    = "^zprobe.in"
 ; Z offset
 ; for inductive sensors, it is the height difference of the nozzle touching the bed and the sensor triggering
 ; for klicky, it is roughly the distance between the switch tip and the switch body.
 ; the actual Z offset will then be calculated later on during homing
 ; increase offset to move the nozzle closer to the bed
-global probe_z_offset = 0.50  ; mm
+; inductive:
+global probe_z_offset = 4.60  ; mm
+; klicky:
+;global probe_z_offset = 0.50  ; mm
 
 ; X/Y offsets for klicky dock
 global probe_x_offset = 0.0   ; mm
@@ -125,7 +128,7 @@ global e_max_jerk  = 20    ; mm/s
 ; default toolhead position
 ; placing it in the front helps with sag when using spherical bearing Z joints
 global park_x = (global.x_max / 2)
-global park_y = 50
+global park_y = 60
 
 ; probe dock setup location
 ; this should be the same X position as the probe dock, but with some subtracted from the Y

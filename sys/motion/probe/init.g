@@ -1,4 +1,12 @@
-; declare any probe globals here
+;;;;; declare any probe globals here
+
+; actual z offset value
+; this will either be set to probe_z_offset (for inductive)
+; or it will be automatically calculated for klicky
+if !exists(global.z_offset)
+    global z_offset = 0.00
+
+; klicky globals
 if !exists(global.klicky_attached)
     global klicky_attached = false  ; tracking if the klicky is attached to the toolhead
 if !exists(global.klicky_triggered_val)

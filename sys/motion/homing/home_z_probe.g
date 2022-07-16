@@ -19,22 +19,18 @@ if global.z_probe_type == "klicky"
         ; now we have a baseline. we can do offset calibration now
         M98 P"/sys/motion/probe/klicky/offset_calibration.g"
 elif global.z_probe_type == "inductive"
-    ; TODO: test this
-    M98 P"/sys/motion/homing/can_home_z.g"
-    if global.can_home_z == true
-        ; lower power in case we screw up and ram into something
-        M98 P"/sys/motion/power/z_low.g"
-
-        ; go to center to home, as good a place as any
-        M98 P"/sys/motion/positioning/center.g"
-
-        ; do probing operation
-        G30
-
-        ; back to high power
-        M98 P"/sys/motion/power/z_high.g"
-
-        M98 P"/sys/motion/positioning/zhop_up.g"
+    ; we don't check can_home_z here because it always returns true for inductive
+    ; and it had some weird issues that i couldn't figure out
+    ; basically the block under if global.can_home_z == true was never being executed
+    ; lower power in case we screw up and ram into something
+    M98 P"/sys/motion/power/z_low.g"
+    ; go to center to home, as good a place as any
+    M98 P"/sys/motion/positioning/center.g"
+    ; do probing operation
+    G30
+    M98 P"/sys/motion/positioning/zhop_up.g"
+    ; back to high power
+    M98 P"/sys/motion/power/z_high.g"
     else
         echo "Cannot home"
 else

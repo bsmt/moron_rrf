@@ -118,8 +118,3 @@ var z2y = global.z2_y_pos
 var z3x = global.z3_x_pos
 var z3y = global.z3_y_pos
 M671 X{var.z0x, var.z1x, var.z2x, var.z3x} Y{var.z0y, var.z1y, var.z2y, var.z3y} S20
-
-; actual z offset value
-; this will either be set to probe_z_offset (for inductive)
-; or it will be automatically calculated for klicky
-global z_offset = 0.00
